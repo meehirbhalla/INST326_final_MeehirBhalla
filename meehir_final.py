@@ -195,6 +195,7 @@ def main():
         
         prints game over message with the name and points attribute(s)
     """    
+    # create an instance of the Archery class
     test = Archery()
     round = 1
     while round != 4:
