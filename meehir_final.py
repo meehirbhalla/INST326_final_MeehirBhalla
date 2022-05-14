@@ -1,6 +1,5 @@
 import sys
 import random
-from webbrowser import get
 
 class Archery:
     """an archery game.
