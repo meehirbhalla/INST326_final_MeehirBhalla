@@ -99,8 +99,13 @@ class Archery:
         """unpacks the user inputted coordinates and converts it to an int,
         then applies the random wind direction to the user input.
 
-        Side effects: 
+        Side effects:
+            final_coordinate attribute is set to the value of player_input.
             
+            player_input attribute is changed from string to int.
+            
+            final_coordinate attribute is changed from string to a 
+            new int value after wind's effect.
         """        
         # unpack inputted coordinates
         x,y = self.player_input
@@ -174,26 +179,6 @@ class Archery:
             print(' ')
             print(f'You scored 1 point...')
             print(' ')
-            
-    # def announce(self):
-    #     """given how many points the player has scored. prints a message
-    #     of where their arrow landed and how many points they scored for 
-    #     that shot.
-    #     """        
-    #     if self.points == 10:
-    #         print(' ')
-    #         print(f'BULLSEYE!: {self.name} hit the bullseye of C3!')
-    #     elif self.points == 5:
-    #         print(' ')
-    #         print(f'Your arrow landed on {self.final_coordinate}!')
-    #         print(' ')
-    #         print(f'You scored 5 points.')
-    #     else:
-    #         print(' ')
-    #         print(f'Your arrow landed on {self.final_coordinate}!')
-    #         print(' ')
-    #         print(f'You scored 1 point...')
-    #         print(' ')
 
 def main():
     """_summary_
