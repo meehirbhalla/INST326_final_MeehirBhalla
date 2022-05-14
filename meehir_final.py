@@ -137,8 +137,12 @@ class Archery:
         """calculates points given a bullseye of C3. the bullseye is 10 points, 
         1 deviation off the bullseye is 5 points, 2 is 1 point. 
 
-        Returns:
-            int: points scored that round
+        Side effects:
+            final_coordinate attribute is changed from an int to a string.
+            
+            points attribute is assigned either 10, 5, or 1 point(s).
+            
+            prints name attribute as a message to console.
         """ 
         f,l = str(self.final_coordinate)
 
@@ -181,7 +185,13 @@ class Archery:
             print(' ')
 
 def main():
-    """_summary_
+    """creates an instance of the Archery class. 
+    
+    Attributes: 
+        test (Archery): an instance of the Archery class.
+    
+    Side effects:
+        prints game over message with the name and points attribute(s)
     """    
     test = Archery()
     round = 1
