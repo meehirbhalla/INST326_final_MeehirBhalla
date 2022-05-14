@@ -185,7 +185,7 @@ class Archery:
             print(' ')
 
 def main():
-    """creates an instance of the Archery class. 
+    """creates an instance of the Archery class and plays through each method 3 times. 
     
     Attributes: 
         test (Archery): an instance of the Archery class.
