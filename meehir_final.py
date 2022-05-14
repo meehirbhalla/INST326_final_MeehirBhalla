@@ -2,18 +2,24 @@ import sys
 import random
 
 class Archery:
-    """an archery game.
+    """a class for an archery game.
     
-    Atttributes:
-        self.name (str): name of the player
-        
+    Attributes:
+        name (str): name of the player
+        points (int): points scored by the player
+        wind (str): cardinal direction of wind
+        player_input (str): player inputted coordinates 
+        final_coordinate (int): player inputted coordinates affected by wind
+    
+    Side effects: 
+        greets and prompts the player for their name via a print statement to
+        console.
     """    
     def __init__(self, name = 'Player 1'):
-        """prompts the player for a name.
+        """greets and prompts the player for a name.
 
         Args:
             name (str): player name. defaults to 'Player 1'.
-            points (int): starting points value of 0.
         """        
         print('Welcome to the Archery game!')
         print(' ')
@@ -24,8 +30,10 @@ class Archery:
         """randomly generates a wind direction from a list of North,
         South, East, and West.
         
-        Returns: 
-            str: string represented wind direction.
+        Side effects: 
+            creates wind attribute and sets it to a random cardinal direction.
+            
+            prints empty space to console for formatting.
         """        
         direction = ['N', 'S', 'E', 'W']
         print(' ')
@@ -43,10 +51,13 @@ class Archery:
     def round (self):
         """prints welcome message and wind direction to start a round. then, prompts
         the player for a coordinate given board restrictions.
-
-        Returns:
-            str: lowercase string representation of the users inputted coordinates in 
-                an x,y format. where x is a letter and y is a number.
+        
+        Side effects:
+            prints current wind direction to console.
+            
+            assigns user input value to player_input attribute.
+            
+            converts player_input attribute to lowercase.
         """        
         # store wind attribute in a new variable
         wind = self.wind
@@ -88,8 +99,8 @@ class Archery:
         """unpacks the user inputted coordinates and converts it to an int,
         then applies the random wind direction to the user input.
 
-        Returns:
-            int: the coordinate of the shot with the wind direction applied.
+        Side effects: 
+            
         """        
         # unpack inputted coordinates
         x,y = self.player_input
