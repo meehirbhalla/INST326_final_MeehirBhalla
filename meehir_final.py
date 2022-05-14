@@ -40,18 +40,12 @@ class Archery:
             
             prints empty space to console for formatting.
         """        
-        direction = ['N', 'S', 'E', 'W']
+        # possible cardinal directions
+        direction = ['North', 'South', 'East', 'West']
         print(' ')
-        self.wind = random.choice(direction)
         
-        if self.wind == 'N':
-            self.wind = 'North'
-        elif self.wind == 'S':
-            self.wind = 'South'
-        elif self.wind == 'E':
-            self.wind = 'East'
-        elif self.wind == 'W':
-            self.wind = 'West'
+        # wind attribute is set to a random direction
+        self.wind = random.choice(direction)
     
     def round (self):
         """prints welcome message and wind direction to start a round. then, prompts
@@ -72,29 +66,30 @@ class Archery:
         print(' ')
         
         # possible inputs given wind direction
-        N = ['a5', 'b5', 'c5', 'd5', 'e5']
-        S = ['a1', 'b1', 'c1', 'd1', 'e1']
-        E = ['e1', 'e2', 'e3', 'e4', 'e5']
-        W = ['a1', 'a2', 'a3', 'a4', 'a5']
+        N = ['a1', 'a2', 'a3', 'a4' 'b1', 'b2', 'b3', 'b4', 'c1', 'c2', 'c3', 'c4', 'd1', 'd2', 'd3', 'd4', 'e1', 'e2', 'e3', 'e4']
+        S = ['a2', 'a3', 'a4', 'a5', 'b2', 'b3', 'b4', 'b5', 'c2', 'c3', 'c4', 'c5', 'd2', 'd3', 'd4', 'd5', 'e2', 'e3', 'e4', 'e5']
+        E = ['a1', 'a2', 'a3', 'a4', 'a5' , 'b1', 'b2', 'b3', 'b4', 'b5', 'c1', 'c2', 'c3', 'c4', 'c5', 'd1', 'd2', 'd3', 'd4', 'd5']
+        W = ['b1', 'b2', 'b3', 'b4', 'b5', 'c1', 'c2', 'c3', 'c4', 'c5', 'd1', 'd2', 'd3', 'd4', 'd5', 'e1', 'e2', 'e3', 'e4', 'e5']
         
+        # makes sure user is inputting value input
         if wind == 'North':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 1-4: ')
-            while self.player_input.lower() in N:
+            while self.player_input.lower() not in N:
                 print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 1-4: ')
         elif wind == 'South':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 2-5: ')
-            while self.player_input.lower() in S:
+            while self.player_input.lower() not in S:
                 print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 2-5: ')
         elif wind == 'East':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-D and y is a number from 1-5: ')
-            while self.player_input.lower() in E:
+            while self.player_input.lower() not in E:
                 print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-D and y is a number from 1-5: ')
         elif wind == 'West':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from B-E and y is a number from 1-5: ')
-            while self.player_input.lower() in W:
+            while self.player_input.lower() not in W:
                 print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from B-E and y is a number from 1-5: ')
         
@@ -112,10 +107,10 @@ class Archery:
             final_coordinate attribute is changed from string to a 
             new int value after wind's effect.
         """        
-        # unpack inputted coordinates
+        # unpack user inputted coordinates
         x,y = self.player_input
         self.final_coordinate = self.player_input
-        # unpack x and y from player input
+        
         # sets the player_input as an int
         if x == 'a':
             self.player_input = int(str('1') + str(y))
@@ -196,11 +191,14 @@ def main():
         test (Archery): an instance of the Archery class.
     
     Side effects:
+        prints current round.
+        
         prints game over message with the name and points attribute(s)
     """    
     test = Archery()
     round = 1
     while round != 4:
+        print(f'This is round {round} of Archery!')
         test.wind_direction()
         test.round()
         test.coordinate()
