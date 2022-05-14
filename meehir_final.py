@@ -20,6 +20,11 @@ class Archery:
 
         Args:
             name (str): player name. defaults to 'Player 1'.
+            
+        Side effects:
+            name attribute is assigned user input.
+            
+            points attribute is set to a value of 0.
         """        
         print('Welcome to the Archery game!')
         print(' ')
