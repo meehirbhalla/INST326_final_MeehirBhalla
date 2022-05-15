@@ -15,6 +15,7 @@ class Archery:
         greets and prompts the player for their name via a print statement to
         console.
     """    
+    
     def __init__(self, name = 'Player 1'):
         """greets and prompts the player for a name.
 
@@ -26,9 +27,9 @@ class Archery:
             
             points attribute is set to a value of 0.
         """        
-        print('Welcome to the Archery game!')
-        print(' ')
+        print('Welcome to the Archery game! \n')
         self.name = input('Please enter your name: ')
+        print(' ')
         self.points = 0
     
     def wind_direction(self):
@@ -37,22 +38,20 @@ class Archery:
         
         Side effects: 
             creates wind attribute and sets it to a random cardinal direction.
-            
-            prints empty space to console for formatting.
         """        
         # possible cardinal directions
         direction = ['North', 'South', 'East', 'West']
-        print(' ')
         
         # wind attribute is set to a random direction
         self.wind = random.choice(direction)
     
     def round (self):
-        """prints welcome message and wind direction to start a round. then, prompts
-        the player for a coordinate given board restrictions.
+        """prints welcome message and wind direction to start a round. then prompts
+            the player for a coordinate given board restrictions according to wind
+            direction.
         
         Side effects:
-            prints current wind direction to console.
+            prints current player's name and wind direction to console.
             
             assigns user input value to player_input attribute.
             
@@ -62,8 +61,7 @@ class Archery:
         wind = self.wind
         print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
         print(f'{self.name}, the current wind direction is {wind}')
-        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
-        print(' ')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* \n')
         
         # possible inputs given wind direction
         N = ['a1', 'a2', 'a3', 'a4' 'b1', 'b2', 'b3', 'b4', 'c1', 'c2', 'c3', 'c4', 'd1', 'd2', 'd3', 'd4', 'e1', 'e2', 'e3', 'e4']
@@ -75,29 +73,25 @@ class Archery:
         if wind == 'North':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 1-4: ')
             while self.player_input.lower() not in N:
-                print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 1-4: ')
         elif wind == 'South':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 2-5: ')
             while self.player_input.lower() not in S:
-                print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-E and y is a number from 2-5: ')
         elif wind == 'East':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-D and y is a number from 1-5: ')
             while self.player_input.lower() not in E:
-                print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from A-D and y is a number from 1-5: ')
         elif wind == 'West':
             self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from B-E and y is a number from 1-5: ')
             while self.player_input.lower() not in W:
-                print(' ')
                 self.player_input = input(f'{self.name}, please enter a coordinate in the format (xy), where x is a letter from B-E and y is a number from 1-5: ')
         
         self.player_input = self.player_input.lower()
     
     def coordinate(self):
         """unpacks the user inputted coordinates and converts it to an int,
-        then applies the random wind direction to the user input.
+            then applies the random wind direction to the user input.
 
         Side effects:
             final_coordinate attribute is set to the value of player_input.
@@ -105,7 +99,7 @@ class Archery:
             player_input attribute is changed from string to int.
             
             final_coordinate attribute is changed from string to a 
-            new int value after wind's effect.
+                new int value after wind's effect.
         """        
         # unpack user inputted coordinates
         x,y = self.player_input
@@ -135,7 +129,7 @@ class Archery:
     
     def validate_shot(self):
         """calculates points given a bullseye of C3. the bullseye is 10 points, 
-        1 deviation off the bullseye is 5 points, 2 is 1 point. 
+            1 deviation off the bullseye is 5 points, 2 is 1 point. 
 
         Side effects:
             final_coordinate attribute is changed from an int to a string.
@@ -160,53 +154,47 @@ class Archery:
         five_points = ['B2','B3','B4','C2','C4','E2','E3','E4']
         bullseye = 'C3'
         
-        print('final coordinate', self.final_coordinate)
-        
         if self.final_coordinate == bullseye:
             self.points += 10
             print(' ')
-            print(f'BULLSEYE!: {self.name} hit the bullseye of C3!')
-            print(' ')
-            print(f'You scored 10 points.')
-            print(' ')
+            print(f'BULLSEYE!: {self.name} hit the bullseye of C3! \n')
+            print(f'You scored 10 points. \n')
         elif self.final_coordinate in five_points:
             self.points += 5
             print(' ')
-            print(f'Your arrow landed on {self.final_coordinate}!')
-            print(' ')
-            print(f'You scored 5 points.')
-            print(' ')
+            print(f'Your arrow landed on {self.final_coordinate}! \n')
+            print(f'You scored 5 points. \n')
         else:
             self.points += 1
             print(' ')
-            print(f'Your arrow landed on {self.final_coordinate}!')
-            print(' ')
-            print(f'You scored 1 point...')
-            print(' ')
+            print(f'Your arrow landed on {self.final_coordinate}! \n')
+            print(f'You scored 1 point... \n')
+
 
 def main():
-    """creates an instance of the Archery class and plays through each method 3 times. 
+    """creates an instance of the Archery class and plays through each method 3 times
+        via a while loop. 
     
     Attributes: 
-        test (Archery): an instance of the Archery class.
+        game (Archery): an instance of the Archery class.
     
     Side effects:
         prints current round.
         
-        prints game over message with the name and points attribute(s)
+        prints game over message with the name and points attribute
     """    
     # create an instance of the Archery class
-    test = Archery()
+    game = Archery()
     round = 1
     while round != 4:
-        print(f'This is round {round} of Archery!')
-        test.wind_direction()
-        test.round()
-        test.coordinate()
-        test.validate_shot()
+        print(f'This is round {round} of Archery! \n')
+        game.wind_direction()
+        game.round()
+        game.coordinate()
+        game.validate_shot()
         
         round += 1
-    print('Game over ' + (test.name) + '! You scored a total of ' + str(test.points) + ' points. Thanks for playing Archery!')
+    print('Game over ' + (game.name) + '! You scored a total of -*-' + str(game.points) + ' points!-*- Thanks for playing Archery! \n')
     
     
 if __name__ == "__main__":
