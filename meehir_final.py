@@ -34,7 +34,7 @@ class Archery:
     
     def wind_direction(self):
         """randomly generates a wind direction from a list of North,
-        South, East, and West.
+            South, East, and West.
         
         Side effects: 
             creates wind attribute and sets it to a random cardinal direction.
@@ -129,7 +129,7 @@ class Archery:
     
     def validate_shot(self):
         """calculates points given a bullseye of C3. the bullseye is 10 points, 
-            1 deviation off the bullseye is 5 points, 2 is 1 point. 
+            1 deviation off the bullseye is 5 points, 2 deviations is 1 point. 
 
         Side effects:
             final_coordinate attribute is changed from an int to a string.
