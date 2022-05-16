@@ -198,7 +198,7 @@ def main():
         game.validate_shot()
         round += 1
         
-    print('Game over ' + (game.name) + '! You scored a total of -*-' + str(game.points) + ' points!-*- Thanks for playing Archery! \n')
+    print('Game over ' + (game.name) + '! You scored a total of ' + str(game.points) + ' points! Thanks for playing Archery! \n')
     
     
 if __name__ == "__main__":
