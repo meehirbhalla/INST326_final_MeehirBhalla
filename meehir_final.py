@@ -30,6 +30,7 @@ class Archery:
         print('Welcome to the Archery game! \n')
         self.name = input('Please enter your name: ')
         print(' ')
+        
         self.points = 0
     
     def wind_direction(self):
@@ -59,6 +60,7 @@ class Archery:
         """        
         # store wind attribute in a new variable
         wind = self.wind
+        
         print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
         print(f'{self.name}, the current wind direction is {wind}')
         print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* \n')
@@ -103,6 +105,7 @@ class Archery:
         """        
         # unpack user inputted coordinates
         x,y = self.player_input
+        
         self.final_coordinate = self.player_input
         
         # sets the player_input as an int
@@ -186,14 +189,15 @@ def main():
     # create an instance of the Archery class
     game = Archery()
     round = 1
+    
     while round != 4:
         print(f'This is round {round} of Archery! \n')
         game.wind_direction()
         game.round()
         game.coordinate()
         game.validate_shot()
-        
         round += 1
+        
     print('Game over ' + (game.name) + '! You scored a total of -*-' + str(game.points) + ' points!-*- Thanks for playing Archery! \n')
     
     
