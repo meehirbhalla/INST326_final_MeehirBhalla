@@ -136,7 +136,7 @@ class Archery:
             
             points attribute is assigned either 10, 5, or 1 point(s).
             
-            prints name attribute as a message to console.
+            prints name and final_coordinate attributes in a message to console.
         """ 
         f,l = str(self.final_coordinate)
 
